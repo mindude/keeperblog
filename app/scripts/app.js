@@ -34,6 +34,16 @@ angular
         controller: 'BlogAdminCtrl',
         controllerAs: 'blogAdmin'
       })
+      .when('/blog-client', {
+        templateUrl: 'views/blog-client.html',
+        controller: 'BlogClientCtrl',
+        controllerAs: 'blogClient'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .otherwise({
         redirectTo: '/'
       });
