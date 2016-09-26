@@ -9,6 +9,22 @@
  */
 angular.module('keeperblogApp')
   .controller('LoginCtrl', function ($scope, $http) {
+    $scope.LogCtrl = function(post){
+      if (
+        post == undefined||!post.username || !post.password
+      ) {
+        alert('Please fill out all form fields.');
+        return false;
+      }
+      var log = $http.post('/users', post);
+
+      log.success(function (data) {
+        console.log(data); // <-- changed
+      });
+
+
+    };
+
     // Here we're creating some local references
     // so that we don't have to type $scope every
     // damn time
@@ -22,6 +38,7 @@ angular.module('keeperblogApp')
     // In our signup.html, we'll be using the ng-model
     // attribute to populate this object.
     signup.user = user = {};
+
 
     // This is our method that will post to our server.
     signup.submit = function () {

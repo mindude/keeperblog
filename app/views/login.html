@@ -2,7 +2,7 @@
   body {background-color: transparent}
 </style>
 <div class="jumbotron col-xs-12">
-  <div class="signup-container">
+  <div class="signup-container col-xs-6">
     <div class="col-md-12">
       <h3 class="signup-header">Signup as a New User</h3>
       <hr>
@@ -51,7 +51,32 @@
 
       </form>
     </div>
+  </div>
 
+  <div class="col-xs-6">
+    <div class="col-md-12">
+      <h3>Log In!</h3>
+      <hr>
+      <br>
+    </div>
+
+    <div ng-controller="LoginCtrl">
+      <form novalidate class="simple-form">
+        Username:
+
+        <input type="text" ng-model="post.username"/><br />
+        <br>
+
+        Password:
+
+        <input type="password" ng-model="post.password"/><br />
+        <br>
+
+
+        <input type="submit" ng-click="LogCtrl(post)" value="Log In" />
+      </form>
+    </div>
   </div>
-  </div>
+
 </div>
+

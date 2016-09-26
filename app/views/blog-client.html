@@ -17,6 +17,11 @@
         <div class="modal-content">
           <div ng-controller="BlogClientCtrl">
             <form novalidate class="simple-form">
+              Username:
+
+              <input type="text" ng-model="post.username"/><br />
+              <br>
+
               Title:
 
               <input type="text" ng-model="post.title"/><br />
@@ -24,8 +29,8 @@
               Content
               <br>
 
-              <input type="text" ng-model="post.content">
-              </input>
+              <textarea rows="4" cols="50" type="text" ng-model="post.content">
+              </textarea>
 
               <br>
               <input type="submit" ng-click="PostCtrl(post)" value="Post" />
@@ -38,9 +43,12 @@
 
   </div>
 
-  <div ng-controller="BlogClientCtrl" ng-init="request()">
-    <div ng-repeat="post in displaypost" class="container" style="padding:20px; border-color: black; border-width: 4px; border-style: solid; margin-bottom: 4px">
-        {{post.title}}
+  <div ng-controller="BlogClientCtrl" ng-init="display()">
+    <div align="left" ng-repeat="a in posts" class="container" style="padding:20px; border-color: black; border-width: 4px; border-style: solid; margin-bottom: 4px">
+        Username: {{a.username}}<br>
+        Title: {{a.title}}<br>
+      <br>
+      {{a.content}}
     </div>
   </div>
 </div>
