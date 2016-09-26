@@ -1,8 +1,46 @@
 <style>
   body {background-color: transparent}
 </style>
+
 <div class="jumbotron col-xs-12">
-  <div align="left" class="col-xs-9 col-xs-push-1">
-    WORDS WORDS WORDS
+  <div class="container">
+    <div align="right">
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Post</button>
+    </div>
+<br>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div ng-controller="BlogClientCtrl">
+            <form novalidate class="simple-form">
+              Title:
+
+              <input type="text" ng-model="post.title"/><br />
+              <br>
+              Content
+              <br>
+
+              <input type="text" ng-model="post.content">
+              </input>
+
+              <br>
+              <input type="submit" ng-click="PostCtrl(post)" value="Post" />
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div ng-controller="BlogClientCtrl" ng-init="request()">
+    <div ng-repeat="post in displaypost" class="container" style="padding:20px; border-color: black; border-width: 4px; border-style: solid; margin-bottom: 4px">
+        {{post.title}}
+    </div>
   </div>
 </div>
